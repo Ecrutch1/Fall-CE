@@ -2911,6 +2911,17 @@
   </div>
 </div>
 
+<div class="help-scrim" id="regScrim">
+  <div class="help-modal" style="max-width:440px">
+    <h2>✅ Did you submit your registration?</h2>
+    <p id="regQ" style="margin-top:10px"></p>
+    <div class="co-actions">
+      <button class="btn-ghost" onclick="regAnswer(false)">Not yet</button>
+      <button class="btn-primary" onclick="regAnswer(true)">Yes — remove it from my list</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -3174,7 +3185,7 @@ function renderSummary(){
     <div class="t">${c.title}<div class="s">${c.loc} · ${c.num} · CRN ${c.id}</div>
     <div class="s">${schedLine(c)}${dateLine(c)?` · ${dateLine(c)}`:''}${c.instr?` · ${c.instr}`:''}</div>
     ${c.dl?'':'<div class="s" style="color:var(--amber);font-weight:600">⚠️ Not in the registration form’s course list yet — call 313-496-2758 or email cecourses@wcccd.edu to register for this one</div>'}</div>
-    <a class="reg-link" target="_blank" rel="noopener" href="${cognitoUrlFor(c)}">Register ↗</a></div>`).join('');
+    <a class="reg-link" target="_blank" rel="noopener" href="${cognitoUrlFor(c)}" onclick="trackReg('${c.id}')">Register ↗</a></div>`).join('');
   const confl = cartConflicts(t.items);
   const box = $('sumConflicts');
   if(confl.length){
@@ -3195,10 +3206,47 @@ function copyList(){
 function openCognito(){ window.open(COGNITO_URL, '_blank'); }
 function backToList(){ show(state.lastView); }
 
+/* --- after-registration housekeeping --- */
+let pendingReg = [], regAsking = null;
+function trackReg(id){ if(!pendingReg.includes(id)) pendingReg.push(id); }
+function checkPending(){
+  if(regAsking) return;
+  while(pendingReg.length){
+    const id = pendingReg.shift();
+    if(state.cart.includes(id)){
+      regAsking = id;
+      $('regQ').textContent = 'Did you finish registering for “' + byId(id).title + '” on the WCCCD form?';
+      $('regScrim').classList.add('open');
+      return;
+    }
+  }
+}
+function regAnswer(yes){
+  const id = regAsking; regAsking = null; $('regScrim').classList.remove('open');
+  if(yes && id){ const i = state.cart.indexOf(id); if(i>=0) state.cart.splice(i,1); toast('✓ Registered — removed from your list'); refresh(); }
+  checkPending();
+}
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible') setTimeout(checkPending, 600); });
+window.addEventListener('storage', e=>{
+  if(e.key===STORE_KEY){ loadList(); pendingReg = pendingReg.filter(id=>state.cart.includes(id)); refresh(); }
+});
+
 /* ================= Init ================= */
 /* JS is running — hide the static no-script fallbacks and enable the interactive experience */
 try{ $('jsNote').remove(); $('staticHead').style.display='none'; $('staticCatalog').style.display='none'; }catch(e){}
 loadList();
+try{
+  const reg = new URLSearchParams(location.search).get('registered');
+  if(reg){
+    const ids = reg.split(',').map(x=>x.trim()).filter(x=>state.cart.includes(x));
+    if(ids.length){
+      state.cart = state.cart.filter(id=>!ids.includes(id)); saveList();
+      const names = ids.map(id=>byId(id).title).join(', ');
+      setTimeout(()=>toast('✓ Registered: ' + names + ' — removed from your list'), 700);
+    }
+    history.replaceState({}, '', location.pathname);
+  }
+}catch(e){}
 renderHome(); renderListControls(); updateHeader(); renderCart();
 </script>
 </body>
