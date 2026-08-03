@@ -244,6 +244,9 @@
   .summary-mini .li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink-2)}
   .summary-mini .li span:first-child{flex:1}
   .secure{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-3);margin-top:12px;justify-content:center}
+  .howto{font-size:13px;color:var(--ink-2);line-height:1.55;margin-bottom:12px}
+  .reg-link{font-weight:700;color:var(--accent);font-size:12.5px;white-space:nowrap;text-decoration:none;border:1px solid var(--line);padding:7px 11px;border-radius:9px;flex:none}
+  .reg-link:hover{background:var(--accent-soft)}
   .legal{font-size:10.5px;color:var(--ink-3);line-height:1.5;margin-top:16px}
 
   .confirm-wrap{max-width:640px;margin:24px auto 0;text-align:center}
@@ -275,9 +278,8 @@
       <div class="brand-ce">Continuing<br>Education</div>
     </div>
     <div class="spacer"></div>
-    <button class="hlink">Sign in</button>
-    <button class="hlink">Help</button>
-    <button class="cart-btn" id="cartBtn">Cart <span class="cart-count" id="cartCount">0</span></button>
+    <a class="hlink" href="https://www.wcccd.edu" target="_blank" rel="noopener" style="text-decoration:none">wcccd.edu ↗</a>
+    <button class="cart-btn" id="cartBtn">My List <span class="cart-count" id="cartCount">0</span></button>
   </div>
 </header>
 
@@ -287,7 +289,7 @@
     <div class="hero">
       <span class="kicker">Fall 2026 · Registration Open</span>
       <h1>Learn something new this fall</h1>
-      <p>Hundreds of community classes across six campuses and online — arts, technology, fitness, languages, trades, and more. Register for everything in one checkout.</p>
+      <p>Hundreds of community classes across six campuses and online — arts, technology, fitness, languages, trades, and more. Build your class list as you browse, then register on the official WCCCD form.</p>
       <form class="hero-search" onsubmit="event.preventDefault();heroSearch()">
         <input id="heroInput" placeholder="Try “guitar”, “yoga”, “Excel”…">
         <button type="submit">Search</button>
@@ -298,7 +300,7 @@
     <span class="st"><b>6</b>campuses + online</span></div>
     </div>
 
-    <div id="jsNote" class="js-note">📄 You're viewing the static preview — browsing works below. For the full interactive experience (search, cart, checkout), download this file and open it in a web browser.</div>
+    <div id="jsNote" class="js-note">📄 You're viewing the static preview — browsing works below. For the full interactive experience (search, class list, and registration), open this page in a web browser.</div>
 
     <div class="sect-head"><h2>Browse by category</h2><span class="sub">tap a category to see its classes</span></div>
     <div class="tiles" id="tiles"><a class="tile" style="background:linear-gradient(140deg,#6d28d9,#a855f7)" href="#sc0">
@@ -2828,138 +2830,43 @@
     <button class="load-more" id="loadMore" style="display:none" onclick="showMore()">Show more classes</button>
   </section>
 
-  <!-- ============ CHECKOUT VIEW ============ -->
+  <!-- ============ CLASS LIST SUMMARY ============ -->
   <section class="view" id="view-checkout">
     <div class="steps" id="stepsBar"></div>
     <div class="co-grid">
-      <div>
-        <div class="panel" id="panel-attendee">
-          <h3>Continuing Education Registration Form</h3>
-          <div class="frow">
-            <div class="field" id="f-first"><label>First name <span class="req">*</span></label><input id="in-first" placeholder="First"></div>
-            <div class="field" id="f-last"><label>Last name <span class="req">*</span></label><input id="in-last" placeholder="Last"></div>
-          </div>
-          <div class="frow thirds">
-            <div class="field"><label>Student ID (A Number)</label><input id="in-sid" placeholder="A00…"></div>
-            <div class="field" id="f-dob"><label>Date of birth <span class="req">*</span></label><input id="in-dob" type="date"></div>
-            <div class="field" id="f-stype"><label>Are you a: <span class="req">*</span></label>
-              <div class="radio-row">
-                <label><input type="radio" name="stype" value="New"> New student</label>
-                <label><input type="radio" name="stype" value="Returning"> Returning</label>
-              </div>
-            </div>
-          </div>
-          <h4 class="sect">Address</h4>
-          <div class="field" id="f-addr1" style="margin-bottom:12px"><label>Address line 1 <span class="req">*</span></label><input id="in-addr1" placeholder="Street address"></div>
-          <div class="field" style="margin-bottom:12px"><label>Address line 2</label><input id="in-addr2" placeholder="Apt, unit (optional)"></div>
-          <div class="frow thirds">
-            <div class="field" id="f-city"><label>City <span class="req">*</span></label><input id="in-city" placeholder="Detroit"></div>
-            <div class="field"><label>State</label><select id="in-state"></select></div>
-            <div class="field" id="f-zip"><label>Zip code <span class="req">*</span></label><input id="in-zip" inputmode="numeric" placeholder="48226"></div>
-          </div>
-          <h4 class="sect">Contact</h4>
-          <div class="frow">
-            <div class="field" id="f-phone"><label>Home phone <span class="req">*</span></label><input id="in-phone" type="tel" placeholder="(313) 555-0142"></div>
-            <div class="field"><label>Alternative phone</label><input id="in-phone2" type="tel" placeholder="Optional"></div>
-          </div>
-          <div class="frow">
-            <div class="field" id="f-email"><label>Email address <span class="req">*</span></label><input id="in-email" type="email" placeholder="you@example.com"></div>
-            <div class="field" id="f-county"><label>Do you reside in Wayne County? <span class="req">*</span></label>
-              <div class="radio-row">
-                <label><input type="radio" name="county" value="Yes"> Yes</label>
-                <label><input type="radio" name="county" value="No"> No</label>
-              </div>
-            </div>
-          </div>
-          <div class="frow">
-            <div class="field"><label>Semester</label>
-              <select id="in-semester"><option>Fall 2026</option><option>Summer 2026</option><option>Winter 2027</option></select>
-            </div>
-            <div class="field sig" id="f-sig"><label>Applicant's signature (type your full name) <span class="req">*</span></label><input id="in-sig" placeholder="Sign here"><div class="hint">Parent's signature if a minor · Date: <span id="sigDate"></span></div></div>
-          </div>
-          <details class="optional">
-            <summary>Optional section — federally required reporting information</summary>
-            <div class="note">Not considered in determining admissibility.</div>
-            <div class="frow" style="margin-top:8px">
-              <div class="field"><label>Sex</label>
-                <div class="check-grid"><label><input type="checkbox" name="sex" value="Male"> Male</label><label><input type="checkbox" name="sex" value="Female"> Female</label></div>
-              </div>
-              <div class="field"><label>Marital status</label>
-                <div class="check-grid"><label><input type="checkbox" name="marital" value="Married"> Married</label><label><input type="checkbox" name="marital" value="Single"> Single</label></div>
-              </div>
-            </div>
-            <div class="field"><label>Check which category describes you best</label>
-              <div class="check-grid">
-                <label><input type="checkbox"> African-American (non Hispanic)</label>
-                <label><input type="checkbox"> American Indian–Native Alaskan</label>
-                <label><input type="checkbox"> Middle Eastern</label>
-                <label><input type="checkbox"> Asian-American</label>
-                <label><input type="checkbox"> Caucasian (non Hispanic)</label>
-                <label><input type="checkbox"> Hispanic</label>
-                <label><input type="checkbox"> Prefer not to respond</label>
-                <label><input type="checkbox"> Other</label>
-              </div>
-            </div>
-          </details>
-          <div class="notice">The Motorcycle Safety program requires pre-registration at any campus. No mail or fax-in registration will be accepted. For sports related camps/classes, a liability waiver form must be signed.</div>
-          <div class="co-actions">
-            <button class="btn-ghost" onclick="backToList()">← Back</button>
-            <button class="btn-primary" onclick="goPayment()">Continue to payment</button>
-          </div>
-          <p class="legal">WCCCD complies with all Federal and State laws and regulations prohibiting discrimination, including Titles VI and VII of the Civil Rights Act of 1964, Title IX of the Education Amendments of 1972, Section 504 of the Rehabilitation Act of 1973, the Age Discrimination Act of 1975, the Vietnam-Era Veterans Readjustment Act of 1974, the Elliot-Larsen Civil Rights Act, Executive Order 11246, and Title II of the ADA. No person shall be discriminated against on the basis of race, color, religion, national origin, age, sex, height, weight, marital status, disability, or political belief. (Policy adopted by the WCCCD Board of Trustees, July 28, 1993)</p>
-        </div>
-
-        <div class="panel" id="panel-payment" style="display:none">
-          <h3>Payment</h3>
-          <div class="field" style="margin-bottom:12px"><label>Cardholder name</label><input placeholder="Name on card"></div>
-          <div class="field" style="margin-bottom:12px"><label>Card number</label><input placeholder="4242 4242 4242 4242" inputmode="numeric"></div>
-          <div class="frow">
-            <div class="field"><label>Expiry</label><input placeholder="MM / YY"></div>
-            <div class="field"><label>CVC</label><input placeholder="123" inputmode="numeric"></div>
-          </div>
-          <div class="co-actions">
-            <button class="btn-ghost" onclick="backToAttendee()">← Back</button>
-            <button class="btn-primary" id="payBtn" onclick="placeOrder()">Place order</button>
-          </div>
-          <div class="secure">🔒 Demo checkout — no real payment is processed</div>
+      <div class="panel order-card" style="margin-top:0">
+        <h3 style="margin-bottom:6px">Your class list <span id="sumCount" style="color:var(--ink-3);font-weight:600;font-size:13px"></span></h3>
+        <div id="sumItems"></div>
+        <div class="conflict-box" id="sumConflicts" style="display:none"></div>
+        <div class="co-actions">
+          <button class="btn-ghost" onclick="backToList()">← Keep browsing</button>
         </div>
       </div>
-
       <div class="panel">
-        <h3>Your classes</h3>
-        <div class="summary-mini" id="coSummary"></div>
-        <div class="totals" id="coTotals"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONFIRMATION VIEW ============ -->
-  <section class="view" id="view-confirm">
-    <div class="confirm-wrap">
-      <div class="check-big">✓</div>
-      <h2>Registration submitted!</h2>
-      <p class="sub" id="confirmSub"></p>
-      <div class="credit-banner" id="creditBanner"></div>
-      <div class="panel order-card" id="orderCard"></div>
-      <div class="co-actions" style="max-width:420px;margin:22px auto 0">
-        <button class="btn-ghost" style="flex:1" onclick="window.print()">Print receipt</button>
-        <button class="btn-primary" onclick="resetDemo()">Browse more classes</button>
+        <h3>Register for these classes</h3>
+        <p class="howto">Registration happens on the official WCCCD registration form. The current form takes <b>one class per submission</b> — tap <b>Register ↗</b> next to a class to open the form with that class's info, or open the form and paste your copied list.</p>
+        <button class="btn-primary" style="width:100%" onclick="openCognito()">Open WCCCD registration form ↗</button>
+        <div class="co-actions" style="margin-top:10px">
+          <button class="btn-ghost" style="flex:1" onclick="copyList()">📋 Copy list</button>
+          <button class="btn-ghost" style="flex:1" onclick="window.print()">🖨 Print</button>
+        </div>
+        <div class="secure">Opens cognitoforms.com — the district's official registration form</div>
       </div>
     </div>
   </section>
 </main>
 
-<div class="proto-note">Interactive prototype · real WCCCD Fall 2026 course &amp; schedule data · $25/class placeholder pricing · Promo demo: <b>WELCOME10</b></div>
+<div class="proto-note">Interactive prototype · real WCCCD Fall 2026 course &amp; schedule data · placeholder pricing · registration via the official WCCCD form</div>
 
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Shopping cart">
   <div class="d-head">
-    <h2>Your cart</h2><span class="n" id="drawerCount"></span>
+    <h2>My class list</h2><span class="n" id="drawerCount"></span>
     <button class="x" id="closeDrawer">✕</button>
   </div>
   <div class="d-body" id="drawerBody"></div>
   <div class="d-foot">
-    <button class="checkout-btn" id="checkoutBtn">Register for these classes</button>
+    <button class="checkout-btn" id="checkoutBtn">Review my class list</button>
   </div>
 </aside>
 
@@ -3057,7 +2964,7 @@ function heroSearch(){ openList('All categories','All locations', $('heroInput')
 
 /* ================= List view ================= */
 function show(viewId){
-  ['view-home','view-list','view-checkout','view-confirm'].forEach(v=>$(v).classList.toggle('on', v===viewId));
+  ['view-home','view-list','view-checkout'].forEach(v=>$(v).classList.toggle('on', v===viewId));
   window.scrollTo({top:0});
 }
 function goHome(){ show('view-home'); state.lastView='view-home'; }
@@ -3096,7 +3003,7 @@ function rowHTML(c){
     </div>
     <div class="right">
       <div class="pr">${fmt(PRICE)}<small>placeholder</small></div>
-      <button class="add ${inCart?'added':''}" onclick="toggleCart('${c.id}')">${inCart?'✓ Added':'Add to cart'}</button>
+      <button class="add ${inCart?'added':''}" onclick="toggleCart('${c.id}')">${inCart?'✓ Added':'＋ Add'}</button>
     </div>
   </div>`;
 }
@@ -3116,8 +3023,8 @@ function showMore(){ state.shown += PAGE; renderList(); }
 /* ================= Cart ================= */
 function toggleCart(id){
   const i = state.cart.indexOf(id);
-  if(i>=0){ state.cart.splice(i,1); toast('Removed from cart'); }
-  else { state.cart.push(id); toast('Added to cart'); }
+  if(i>=0){ state.cart.splice(i,1); toast('Removed from your list'); }
+  else { state.cart.push(id); toast('Added to your list'); }
   refresh(true);
 }
 function removeItem(id){ const i=state.cart.indexOf(id); if(i>=0) state.cart.splice(i,1); refresh(); }
@@ -3127,7 +3034,7 @@ function renderCart(){
   $('drawerCount').textContent = state.cart.length ? `(${state.cart.length} class${state.cart.length>1?'es':''})` : '';
   $('checkoutBtn').disabled = !state.cart.length;
   if(!state.cart.length){
-    $('drawerBody').innerHTML = `<div class="empty"><div class="big">🛒</div>Your cart is empty.<br>Add classes from the catalog — you can register for several in one checkout.</div>`;
+    $('drawerBody').innerHTML = `<div class="empty"><div class="big">🛒</div>Your list is empty.<br>Tap “＋ Add” on any class to start building your class list.</div>`;
     return;
   }
   let html = '';
@@ -3152,37 +3059,20 @@ function renderCart(){
   }
 
   html += `<div class="tracker">
-    <h5><span>This registration</span><span>${t.items.length} class${t.items.length>1?'es':''}</span></h5>
+    <h5><span>Your selections</span><span>${t.items.length} class${t.items.length>1?'es':''}</span></h5>
     <div class="breakdown">${Object.entries(t.byLoc).map(([k,v])=>
       `<span class="credit-pill"><span class="dot" style="background:${k==='Online'?'#15803d':'#1173c1'}"></span>${v} at ${k}</span>`).join('')}</div>
   </div>`;
 
-  if(state.promo){
-    html += `<div class="promo-applied">🏷️ ${PROMOS[state.promo].label} <button onclick="clearPromo()">Remove</button></div>`;
-  } else {
-    html += `<div class="promo">
-      <input id="promoInput" placeholder="Promo code (optional)" onkeydown="if(event.key==='Enter')applyPromo()">
-      <button onclick="applyPromo()">Apply</button></div>
-    <div class="promo-msg" id="promoMsg"></div>`;
-  }
-
   html += `<div class="totals">
-    <div class="trow"><span>${t.items.length} class${t.items.length>1?'es':''} × ${fmt(PRICE)}</span><span>${fmt(t.sub)}</span></div>
-    ${t.promoAmt?`<div class="trow disc"><span>Promo ${state.promo}</span><span>−${fmt(t.promoAmt)}</span></div>`:''}
-    <div class="trow grand"><span>Total</span><span>${fmt(t.total)}</span></div>
+    <div class="trow"><span>${t.items.length} class${t.items.length>1?'es':''} × ${fmt(PRICE)} (placeholder)</span><span>${fmt(t.sub)}</span></div>
+    <div class="trow grand"><span>Estimated total</span><span>${fmt(t.total)}</span></div>
+    <div class="trow" style="font-size:11.5px;justify-content:center">Final fees are confirmed during registration</div>
   </div>`;
 
   $('drawerBody').innerHTML = html;
 }
 
-function applyPromo(){
-  const code = ($('promoInput').value||'').trim().toUpperCase();
-  const msg = $('promoMsg');
-  if(!code) return;
-  if(!PROMOS[code]){ msg.className='promo-msg err'; msg.textContent='"'+code+'" isn\'t a valid code.'; return; }
-  state.promo = code; toast('Promo applied: '+code); refresh();
-}
-function clearPromo(){ state.promo=null; refresh(); }
 
 /* ================= Drawer / header ================= */
 function openDrawer(){ renderCart(); $('drawer').classList.add('open'); $('scrim').classList.add('open'); }
@@ -3203,85 +3093,66 @@ function toast(msg){
   clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove('show'), 2200);
 }
 function refresh(bump){
+  saveList();
   updateHeader(bump);
   if($('view-list').classList.contains('on')) renderList();
   renderCart();
-  if($('view-checkout').classList.contains('on')) renderCheckoutRail();
+  if($('view-checkout').classList.contains('on')) renderSummary();
 }
 
-/* ================= Checkout ================= */
-let coStep = 1;
-$('checkoutBtn').onclick = ()=>{ if(state.cart.length){ coStep=1; closeDrawer(); startCheckout(); } };
-function startCheckout(){
-  show('view-checkout');
-  $('panel-attendee').style.display = coStep===1?'block':'none';
-  $('panel-payment').style.display = coStep===2?'block':'none';
-  renderSteps(); renderCheckoutRail();
+/* ================= Saved list (survives refreshes on this device) ================= */
+const STORE_KEY = 'wcccd-ce-list-fall2026';
+function saveList(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(state.cart)); }catch(e){} }
+function loadList(){ try{
+  const a = JSON.parse(localStorage.getItem(STORE_KEY)||'[]');
+  if(Array.isArray(a)) state.cart = a.filter(id=>byId(id));
+}catch(e){} }
+
+/* ================= Class list summary & Cognito handoff ================= */
+const COGNITO_URL = 'https://www.cognitoforms.com/WCCCDWebsiteForms/ContinuingEducationRegistrationForm';
+const SEMESTER = 'Fall 2026';
+$('checkoutBtn').onclick = ()=>{ if(state.cart.length){ closeDrawer(); renderSummary(); show('view-checkout'); } };
+
+function cognitoUrlFor(c){
+  const entry = {CourseTitle:c.title, CRN:c.id, CourseNumber:c.num, Location:(c.loc==='Online'?'Virtual Courses':c.loc), Semester:SEMESTER};
+  return COGNITO_URL + '?entry=' + encodeURIComponent(JSON.stringify(entry));
 }
-function renderSteps(){
-  const steps = ['Cart','Registration form','Payment','Confirmation'];
-  const cur = coStep+1;
-  $('stepsBar').innerHTML = steps.map((s,i)=>{
-    const n = i+1;
-    const cls = n<cur?'done':(n===cur?'cur':'');
-    return `<span class="step ${cls}"><span class="num">${n<cur?'✓':n}</span>${s}</span>${n<steps.length?'<span class="sep"></span>':''}`;
+function renderSummary(){
+  const t = totals();
+  const steps = ['Browse & select','Review your list','Register on the WCCCD form'];
+  $('stepsBar').innerHTML = steps.map((sname,i)=>{
+    const n = i+1, cls = n<2?'done':(n===2?'cur':'');
+    return `<span class="step ${cls}"><span class="num">${n<2?'✓':n}</span>${sname}</span>${n<steps.length?'<span class="sep"></span>':''}`;
   }).join('');
+  $('sumCount').textContent = `(${t.items.length} class${t.items.length>1?'es':''})`;
+  $('sumItems').innerHTML = t.items.map(c=>`<div class="oi"><div class="ic">${c.online?'💻':'📍'}</div>
+    <div class="t">${c.title}<div class="s">${c.loc} · ${c.num} · CRN ${c.id}</div>
+    <div class="s">${schedLine(c)}${dateLine(c)?` · ${dateLine(c)}`:''}${c.instr?` · ${c.instr}`:''}</div></div>
+    <a class="reg-link" target="_blank" rel="noopener" href="${cognitoUrlFor(c)}">Register ↗</a></div>`).join('');
+  const confl = cartConflicts(t.items);
+  const box = $('sumConflicts');
+  if(confl.length){
+    box.style.display = 'block';
+    box.innerHTML = `⚠️ <b>Heads up — schedule conflict${confl.length>1?'s':''}:</b> ${confl.map(([a,b])=>
+      `“${a.title}” and “${b.title}” meet at overlapping times (${fmtDays(a.days)} ${fmtTime(a.st)})`).join('; ')}.`;
+  } else box.style.display = 'none';
 }
-function renderCheckoutRail(){
-  const t = totals();
-  $('coSummary').innerHTML = t.items.map(c=>
-    `<div class="li"><span>${c.title}<br><small style="color:var(--ink-3)">${c.loc} · CRN ${c.id} · ${schedLine(c)}${dateLine(c)?` · ${dateLine(c)}`:''}</small></span><span>${fmt(PRICE)}</span></div>`).join('');
-  $('coTotals').innerHTML = `
-    ${t.promoAmt?`<div class="trow disc"><span>Promo ${state.promo}</span><span>−${fmt(t.promoAmt)}</span></div>`:''}
-    <div class="trow grand"><span>Total</span><span>${fmt(t.total)}</span></div>
-    <div class="trow" style="justify-content:center;font-size:12px">One form covers all ${t.items.length} class${t.items.length>1?'es':''}</div>`;
+function listText(){
+  return totals().items.map(c=>`• ${c.title} — CRN ${c.id} — ${c.num} — ${c.loc}${(c.days&&c.st)?` — ${schedLine(c)}`:''}${dateLine(c)?`, ${dateLine(c)}`:''}`).join('\n');
 }
+function copyList(){
+  const txt = 'WCCCD Continuing Education — my class list ('+SEMESTER+')\n' + listText() + '\nRegister: ' + COGNITO_URL;
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(()=>toast('Class list copied')).catch(()=>prompt('Copy your class list:', txt));
+  } else prompt('Copy your class list:', txt);
+}
+function openCognito(){ window.open(COGNITO_URL, '_blank'); }
 function backToList(){ show(state.lastView); }
-function backToAttendee(){ coStep=1; startCheckout(); }
-function radioVal(name){ const r = document.querySelector(`input[name="${name}"]:checked`); return r ? r.value : ''; }
-function goPayment(){
-  let ok = true;
-  const req = [['f-first','in-first'],['f-last','in-last'],['f-dob','in-dob'],['f-addr1','in-addr1'],['f-city','in-city'],['f-zip','in-zip'],['f-phone','in-phone'],['f-email','in-email'],['f-sig','in-sig']];
-  req.forEach(([f,i])=>{
-    const bad = !$(i).value.trim() || (i==='in-email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($(i).value.trim()));
-    $(f).classList.toggle('invalid', bad); if(bad) ok=false;
-  });
-  const stypeBad = !radioVal('stype'); $('f-stype').classList.toggle('invalid', stypeBad); if(stypeBad) ok=false;
-  const countyBad = !radioVal('county'); $('f-county').classList.toggle('invalid', countyBad); if(countyBad) ok=false;
-  if(!ok){ toast('Please complete the required fields'); return; }
-  coStep = 2; startCheckout();
-}
-function placeOrder(){
-  const t = totals();
-  const first = $('in-first').value.trim(), email = $('in-email').value.trim();
-  const orderNo = 'REG-' + Math.floor(100000 + Math.random()*900000);
-  $('confirmSub').innerHTML = `Thanks, ${first}! Registration <b>${orderNo}</b> for <b>${$('in-semester').value}</b> has been submitted — a confirmation is on its way to <b>${email}</b>.`;
-  $('creditBanner').innerHTML = `<b>${t.items.length} class${t.items.length>1?'es':''}</b> registered in one submission
-    <div class="row2">${Object.entries(t.byLoc).map(([k,v])=>`<span class="pill">${v} · ${k}</span>`).join('')}</div>
-    <div style="font-size:12px;opacity:.85;margin-top:10px">Class dates, times, and room details will be emailed before your first session. ${radioVal('stype')==='New'?'Watch for your Student ID (A Number) in a separate email.':''}</div>`;
-  $('orderCard').innerHTML = `<h3 style="margin-bottom:6px">Your classes</h3>` +
-    t.items.map(c=>`<div class="oi"><div class="ic">${c.online?'💻':'📍'}</div>
-      <div class="t">${c.title}<div class="s">${c.loc} · ${c.num} · CRN ${c.id}</div>
-      <div class="s">${schedLine(c)}${dateLine(c)?` · ${dateLine(c)}`:''}${c.instr?` · ${c.instr}`:''}</div></div>
-      <div style="font-weight:700">${fmt(PRICE)}</div></div>`).join('') +
-    `<div class="totals" style="margin-top:6px">
-      ${t.promoAmt?`<div class="trow disc"><span>Promo ${state.promo}</span><span>−${fmt(t.promoAmt)}</span></div>`:''}
-      <div class="trow grand"><span>Total charged</span><span>${fmt(t.total)}</span></div></div>`;
-  show('view-confirm');
-}
-function resetDemo(){
-  state.cart = []; state.promo = null; coStep = 1;
-  refresh(); goHome();
-}
 
 /* ================= Init ================= */
-(function(){
-  const states = ['MI','AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
-  $('in-state').innerHTML = states.map((s,i)=>`<option ${i===0?'selected':''}>${s}</option>`).join('');
-  $('sigDate').textContent = new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-})();
 /* JS is running — hide the static no-script fallbacks and enable the interactive experience */
 try{ $('jsNote').remove(); $('staticHead').style.display='none'; $('staticCatalog').style.display='none'; }catch(e){}
+loadList();
 renderHome(); renderListControls(); updateHeader(); renderCart();
 </script>
 </body>
