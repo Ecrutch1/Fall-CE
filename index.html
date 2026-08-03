@@ -139,6 +139,9 @@
   .search2 input{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 13px 11px 36px;font-size:14px;background:#fff;box-shadow:var(--shadow)}
   .search2 input:focus{outline:2px solid var(--accent);outline-offset:-1px}
   .search2 .ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:13px}
+  .home-btn{flex:none;display:flex;align-items:center;gap:5px;background:var(--accent);color:#fff;border-radius:12px;padding:11px 14px;font-size:13.5px;font-weight:700;box-shadow:var(--shadow)}
+  .home-btn:hover{background:var(--accent-dark)}
+  @media(max-width:560px){.home-btn span{display:none}.home-btn{padding:11px 13px;font-size:16px}}
   .result-count{font-size:12.5px;color:var(--ink-3);margin:4px 0 10px}
   .result-count b{color:var(--ink-2)}
 
@@ -296,6 +299,7 @@
       <div class="brand-ce">Continuing<br>Education</div>
     </div>
     <div class="spacer"></div>
+    <button class="hlink" onclick="goHome()" style="display:block">Home</button>
     <a class="hlink" href="https://www.wcccd.edu" target="_blank" rel="noopener" style="text-decoration:none">wcccd.edu ↗</a>
     <button class="hlink" id="helpBtn" style="display:block">Help</button>
     <button class="cart-btn" id="cartBtn">My List <span class="cart-count" id="cartCount">0</span></button>
@@ -2846,6 +2850,7 @@
       <div class="list-title" id="listTitle"></div>
     </div>
     <div class="toolbar">
+      <button class="home-btn" onclick="goHome()" aria-label="Back to homepage">⌂<span> Home</span></button>
       <div class="sel"><select id="catSelect"></select></div>
       <div class="sel"><select id="locSelect"></select></div>
       <div class="search2"><span class="ico">🔍</span><input id="searchInput" placeholder="Search this list…"></div>
