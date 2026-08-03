@@ -85,6 +85,9 @@
   .help-modal p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
   .help-close{float:right;width:32px;height:32px;border-radius:50%;background:var(--bg);font-size:15px;color:var(--ink-2)}
   .help-contact{background:var(--accent-soft);border:1px solid #bcd9f0;border-radius:12px;padding:12px 14px;margin-top:16px;font-size:13.5px;color:var(--accent-deep);font-weight:600;line-height:1.6}
+  .info-ok{background:var(--green-soft);border:1px solid #a7f3d0;color:var(--green);border-radius:12px;padding:10px 13px;font-size:13px;font-weight:700;line-height:1.5}
+  .info-ok button{color:var(--green);text-decoration:underline;font-size:12.5px;margin-left:6px}
+  .info-cta{width:100%;text-align:left;border:1.5px dashed var(--accent);color:var(--accent-dark);background:var(--accent-soft);border-radius:12px;padding:12px 14px;font-size:13px;font-weight:700;line-height:1.45}
 
   /* ---------- Category tiles ---------- */
   .sect-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 16px}
@@ -335,75 +338,59 @@
     <div class="tiles" id="tiles"><a class="tile" style="background:linear-gradient(140deg,#6d28d9,#a855f7)" href="#sc0">
       <span class="em">✍️</span>
       <span class="nm">Academic Skills & Writing</span>
-      <span class="ct">9 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#be123c,#fb7185)" href="#sc1">
       <span class="em">🎨</span>
       <span class="nm">Arts & Crafts</span>
-      <span class="ct">104 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#a21caf,#e879f9)" href="#sc2">
       <span class="em">💄</span>
       <span class="nm">Beauty & Personal Care</span>
-      <span class="ct">9 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#0f766e,#2dd4bf)" href="#sc3">
       <span class="em">💼</span>
       <span class="nm">Business & Career</span>
-      <span class="ct">34 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#1d4ed8,#60a5fa)" href="#sc4">
       <span class="em">🎓</span>
       <span class="nm">Career & Test Prep</span>
-      <span class="ct">42 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#0c5a99,#38bdf8)" href="#sc5">
       <span class="em">💻</span>
       <span class="nm">Computers & Technology</span>
-      <span class="ct">86 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#c2410c,#fb923c)" href="#sc6">
       <span class="em">💃</span>
       <span class="nm">Dance</span>
-      <span class="ct">17 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#374151,#9ca3af)" href="#sc7">
       <span class="em">📷</span>
       <span class="nm">Design & Photography</span>
-      <span class="ct">16 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#047857,#34d399)" href="#sc8">
       <span class="em">🧘</span>
       <span class="nm">Fitness & Wellness</span>
-      <span class="ct">43 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#92400e,#d97706)" href="#sc9">
       <span class="em">📜</span>
       <span class="nm">Genealogy & History</span>
-      <span class="ct">18 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#b91c1c,#f87171)" href="#sc10">
       <span class="em">🍎</span>
       <span class="nm">Health & Nutrition</span>
-      <span class="ct">14 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#4d7c0f,#a3e635)" href="#sc11">
       <span class="em">🔧</span>
       <span class="nm">Home, Auto & Trades</span>
-      <span class="ct">7 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#0e7490,#22d3ee)" href="#sc12">
       <span class="em">🗣️</span>
       <span class="nm">Languages</span>
-      <span class="ct">24 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#7c3aed,#c084fc)" href="#sc13">
       <span class="em">🎸</span>
       <span class="nm">Music & Performing Arts</span>
-      <span class="ct">19 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#9d174d,#f472b6)" href="#sc14">
       <span class="em">🧵</span>
       <span class="nm">Sewing & Textiles</span>
-      <span class="ct">24 classes</span>
     </a><a class="tile" style="background:linear-gradient(140deg,#b45309,#fbbf24)" href="#sc15">
       <span class="em">🏫</span>
       <span class="nm">Teaching & Classroom</span>
-      <span class="ct">12 classes</span>
     </a></div>
 
     <div class="sect-head"><h2>Browse by campus</h2><button class="right" onclick="openList('All categories','All locations','')">View all classes →</button></div>
-    <div class="campus-strip" id="campusStrip"><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 Downriver</b><span>108 classes</span></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 Downtown</b><span>63 classes</span></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 Eastern</b><span>48 classes</span></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 Northwest</b><span>88 classes</span></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 Ted Scott</b><span>34 classes</span></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 University Center</b><span>41 classes</span></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>💻 Online</b><span>96 classes</span></a></div>
+    <div class="campus-strip" id="campusStrip"><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 Downriver</b></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 Downtown</b></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 Eastern</b></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 Northwest</b></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 Ted Scott</b></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>📍 University Center</b></a><a class="campus" style="text-decoration:none;color:inherit" href="#staticHead"><b>💻 Online</b></a></div>
 
     <div class="sect-head" id="staticHead"><h2>All classes by category</h2><span class="sub">tap a category to expand</span></div>
     <div id="staticCatalog"><details class="acc" id="sc0">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#6d28d9,#a855f7)">✍️</span> Academic Skills & Writing <span class="cnt">9 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#6d28d9,#a855f7)">✍️</span> Academic Skills & Writing <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Basic Sentence and Grammar</div>
     <div class="st2">In-Person · Downtown · EDDV-6059 · CRN 82831</div>
@@ -451,7 +438,7 @@
     <div class="st4"></div>
   </div></div>
   </details><details class="acc" id="sc1">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#be123c,#fb7185)">🎨</span> Arts & Crafts <span class="cnt">104 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#be123c,#fb7185)">🎨</span> Arts & Crafts <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Abstract Acrylic Pouring Techniques</div>
     <div class="st2">In-Person · Eastern · CRFT-5061 · CRN 80501</div>
@@ -974,7 +961,7 @@
     <div class="st4">👤 Robinson Young, Kathleen · 24 seats</div>
   </div></div>
   </details><details class="acc" id="sc2">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#a21caf,#e879f9)">💄</span> Beauty & Personal Care <span class="cnt">9 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#a21caf,#e879f9)">💄</span> Beauty & Personal Care <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Art of Makeup Advanced</div>
     <div class="st2">In-Person · Eastern · BPEN-5716 · CRN 83016</div>
@@ -1022,7 +1009,7 @@
     <div class="st4">👤 Amine, Moblue · 24 seats</div>
   </div></div>
   </details><details class="acc" id="sc3">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#0f766e,#2dd4bf)">💼</span> Business & Career <span class="cnt">34 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#0f766e,#2dd4bf)">💼</span> Business & Career <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Compensation and Benefits</div>
     <div class="st2">Online · Online · HRMS-1363 · CRN 81196</div>
@@ -1195,7 +1182,7 @@
     <div class="st4">👤 Green, Janisse · 6 seats</div>
   </div></div>
   </details><details class="acc" id="sc4">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#1d4ed8,#60a5fa)">🎓</span> Career & Test Prep <span class="cnt">42 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#1d4ed8,#60a5fa)">🎓</span> Career & Test Prep <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Code of Ethics: Real Estate Licensing</div>
     <div class="st2">Online · Online · PELP-5046 · CRN 83013</div>
@@ -1408,7 +1395,7 @@
     <div class="st4">👤 Gullet-Neal, Valencia</div>
   </div></div>
   </details><details class="acc" id="sc5">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#0c5a99,#38bdf8)">💻</span> Computers & Technology <span class="cnt">86 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#0c5a99,#38bdf8)">💻</span> Computers & Technology <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Advanced Digital Content Creation</div>
     <div class="st2">Online · Online · CSTT-6065 · CRN 83889</div>
@@ -1841,7 +1828,7 @@
     <div class="st4">👤 Green, Janisse · 6 seats</div>
   </div></div>
   </details><details class="acc" id="sc6">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#c2410c,#fb923c)">💃</span> Dance <span class="cnt">17 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#c2410c,#fb923c)">💃</span> Dance <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Ballet for Fitness</div>
     <div class="st2">In-Person · Ted Scott · DANC-4032 · CRN 81904</div>
@@ -1929,7 +1916,7 @@
     <div class="st4">👤 Valinski, Jennifer</div>
   </div></div>
   </details><details class="acc" id="sc7">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#374151,#9ca3af)">📷</span> Design & Photography <span class="cnt">16 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#374151,#9ca3af)">📷</span> Design & Photography <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Beginner Digital Photography</div>
     <div class="st2">In-Person · Eastern · PHOT-4019 · CRN 72995</div>
@@ -2012,7 +1999,7 @@
     <div class="st4">👤 Smith, Andre · 15 seats</div>
   </div></div>
   </details><details class="acc" id="sc8">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#047857,#34d399)">🧘</span> Fitness & Wellness <span class="cnt">43 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#047857,#34d399)">🧘</span> Fitness & Wellness <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Ashtanga-Yin Yoga</div>
     <div class="st2">In-Person · Ted Scott · PEDU-5041 · CRN 82327</div>
@@ -2230,7 +2217,7 @@
     <div class="st4">👤 Plant, Rashonda · 12 seats</div>
   </div></div>
   </details><details class="acc" id="sc9">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#92400e,#d97706)">📜</span> Genealogy & History <span class="cnt">18 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#92400e,#d97706)">📜</span> Genealogy & History <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Build Communities through an Entrepreneurship Approach</div>
     <div class="st2">In-Person · Northwest · ENPR-5032 · CRN 82693</div>
@@ -2323,7 +2310,7 @@
     <div class="st4">👤 Lewis-Williams, Felicia · 2 seats</div>
   </div></div>
   </details><details class="acc" id="sc10">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#b91c1c,#f87171)">🍎</span> Health & Nutrition <span class="cnt">14 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#b91c1c,#f87171)">🍎</span> Health & Nutrition <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">3 R Vitality Method - A Whole Person Framework</div>
     <div class="st2">In-Person · Downriver · HEAL-5233 · CRN 83934</div>
@@ -2396,7 +2383,7 @@
     <div class="st4">👤 Manus, Carolyn · 12 seats</div>
   </div></div>
   </details><details class="acc" id="sc11">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#4d7c0f,#a3e635)">🔧</span> Home, Auto & Trades <span class="cnt">7 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#4d7c0f,#a3e635)">🔧</span> Home, Auto & Trades <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">60 Hr. Pre -Lic.Res. Builder</div>
     <div class="st2">In-Person · Northwest · BCHI-5008 · CRN 83044</div>
@@ -2434,7 +2421,7 @@
     <div class="st4"> · 45 seats</div>
   </div></div>
   </details><details class="acc" id="sc12">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#0e7490,#22d3ee)">🗣️</span> Languages <span class="cnt">24 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#0e7490,#22d3ee)">🗣️</span> Languages <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Conversational Arabic Beginner</div>
     <div class="st2">In-Person · Downriver · LANG-5019 · CRN 83929</div>
@@ -2557,7 +2544,7 @@
     <div class="st4">👤 Gutierrez, Felix · 30 seats</div>
   </div></div>
   </details><details class="acc" id="sc13">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#7c3aed,#c084fc)">🎸</span> Music & Performing Arts <span class="cnt">19 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#7c3aed,#c084fc)">🎸</span> Music & Performing Arts <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Acting I - Monologue</div>
     <div class="st2">In-Person · University Center · ARTC-4159 · CRN 83273</div>
@@ -2655,7 +2642,7 @@
     <div class="st4"> · 24 seats</div>
   </div></div>
   </details><details class="acc" id="sc14">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#9d174d,#f472b6)">🧵</span> Sewing & Textiles <span class="cnt">24 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#9d174d,#f472b6)">🧵</span> Sewing & Textiles <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Advanced Serger Sewing</div>
     <div class="st2">Online · Online · CCCT-5003 · CRN 81209</div>
@@ -2778,7 +2765,7 @@
     <div class="st4">👤 Cunningham, Ophelia · 18 seats</div>
   </div></div>
   </details><details class="acc" id="sc15">
-    <summary><span class="em2" style="background:linear-gradient(140deg,#b45309,#fbbf24)">🏫</span> Teaching & Classroom <span class="cnt">12 classes</span><span class="arr">▶</span></summary>
+    <summary><span class="em2" style="background:linear-gradient(140deg,#b45309,#fbbf24)">🏫</span> Teaching & Classroom <span class="arr" style="margin-left:auto">▶</span></summary>
     <div class="srow"><div>
     <div class="st1">Blogging and Podcasting for Be</div>
     <div class="st2">Online · Online · SBCE-4021 · CRN 79207</div>
@@ -2874,6 +2861,7 @@
       </div>
       <div class="panel">
         <h3>Register for these classes</h3>
+        <div id="infoStatus" style="margin-bottom:12px"></div>
         <p class="howto">Registration happens on the official WCCCD registration form. The current form takes <b>one class per submission</b> — tap <b>Register ↗</b> next to a class to open the form with that class's info, or open the form and paste your copied list.</p>
         <button class="btn-primary" style="width:100%" onclick="openCognito()">Open WCCCD registration form ↗</button>
         <div class="co-actions" style="margin-top:10px">
@@ -2908,11 +2896,53 @@
     <p>Almost — this app is for browsing and choosing. When you tap <b>Register</b>, the official WCCCD registration form opens with your class already selected. You fill in your personal information there and submit. Each class is one quick form submission.</p>
     <h4>What do classes cost?</h4>
     <p>Class fees are confirmed during registration. Contact the Continuing Education office with any questions about fees.</p>
+    <h4>Do I have to retype my information for every class?</h4>
+    <p>No — on the review page, tap <b>Fill in your info once</b>. Your details are saved on this device and pre-filled on every class's registration form. On a shared or public computer, tap <b>Clear my info</b> when you're done.</p>
     <h4>Where did my list go?</h4>
     <p>Your class list is saved automatically on the device and browser you're using — it will be here when you come back. It won't follow you to a different phone or computer.</p>
     <h4>A class says it can't be selected on the form</h4>
     <p>A small number of classes aren't in the registration form's course list yet. For those, contact the Continuing Education office to register.</p>
     <div class="help-contact" id="helpContact">📞 Questions or need a hand?<br>WCCCD Continuing Education office<br><a href="tel:3134962758" style="color:var(--accent-deep)">313-496-2758</a> · <a href="mailto:cecourses@wcccd.edu" style="color:var(--accent-deep)">cecourses@wcccd.edu</a></div>
+  </div>
+</div>
+
+<div class="help-scrim" id="infoScrim">
+  <div class="help-modal" style="max-width:640px">
+    <button class="help-close" id="infoClose">✕</button>
+    <h2>👤 Your info — fill it once</h2>
+    <p style="margin:8px 0 14px">Saved only on this device and used to pre-fill the registration form for every class, so you don't retype it. You'll still sign each form before submitting.</p>
+    <div class="frow">
+      <div class="field"><label>First name</label><input id="pi-first"></div>
+      <div class="field"><label>Last name</label><input id="pi-last"></div>
+    </div>
+    <div class="frow thirds">
+      <div class="field"><label>Student ID (A Number)</label><input id="pi-sid" placeholder="If returning"></div>
+      <div class="field"><label>Date of birth</label><input id="pi-dob" type="date"></div>
+      <div class="field"><label>Are you a:</label><div class="radio-row">
+        <label><input type="radio" name="pi-stype" value="New Student"> New</label>
+        <label><input type="radio" name="pi-stype" value="Returning Student"> Returning</label></div></div>
+    </div>
+    <div class="field" style="margin-bottom:12px"><label>Address line 1</label><input id="pi-a1" placeholder="Street address"></div>
+    <div class="field" style="margin-bottom:12px"><label>Address line 2</label><input id="pi-a2" placeholder="Apt, unit (optional)"></div>
+    <div class="frow thirds">
+      <div class="field"><label>City</label><input id="pi-city"></div>
+      <div class="field"><label>State</label><select id="pi-state"></select></div>
+      <div class="field"><label>Zip code</label><input id="pi-zip" inputmode="numeric"></div>
+    </div>
+    <div class="frow">
+      <div class="field"><label>Home phone</label><input id="pi-ph" type="tel"></div>
+      <div class="field"><label>Alternative phone</label><input id="pi-ph2" type="tel"></div>
+    </div>
+    <div class="frow">
+      <div class="field"><label>Email address</label><input id="pi-email" type="email"></div>
+      <div class="field"><label>Do you reside in Wayne County?</label><div class="radio-row">
+        <label><input type="radio" name="pi-county" value="Yes"> Yes</label>
+        <label><input type="radio" name="pi-county" value="No"> No</label></div></div>
+    </div>
+    <div class="co-actions">
+      <button class="btn-ghost" id="infoClear">Clear my info</button>
+      <button class="btn-primary" id="infoSave">Save</button>
+    </div>
   </div>
 </div>
 
@@ -3009,12 +3039,11 @@ function renderHome(){
     return `<button class="tile" style="background:linear-gradient(140deg,${c1},${c2})" onclick="openList('${cat.replace(/'/g,"\\'")}','All locations','')">
       <span class="em">${em}</span>
       <span class="nm">${cat}</span>
-      <span class="ct">${n} classes</span>
     </button>`;
   }).join('');
   $('campusStrip').innerHTML = LOCATIONS.filter(l=>l!=='All locations').map(l=>{
     const n = COURSES.filter(c=>c.loc===l).length;
-    return `<button class="campus" onclick="openList('All categories','${l.replace(/'/g,"\\'")}','')"><b>${l==='Online'?'💻 Online':'📍 '+l}</b><span>${n} classes</span></button>`;
+    return `<button class="campus" onclick="openList('All categories','${l.replace(/'/g,"\\'")}','')"><b>${l==='Online'?'💻 Online':'📍 '+l}</b></button>`;
   }).join('');
 }
 function heroSearch(){ openList('All categories','All locations', $('heroInput').value.trim()); }
@@ -3176,6 +3205,19 @@ function cognitoUrlFor(c){
   const entry = { Semester2: SEMESTER };
   if(c.eid) entry.CourseTitle = '21-' + c.eid;
   else entry.CRN = c.id; // class not in the lookup table — pass the CRN at least
+  const i = loadInfo();
+  if(infoFilled(i)){
+    if(i.first||i.last) entry.Name = {First:i.first, Last:i.last};
+    if(i.sid) entry.StudentIDANumber = i.sid;
+    if(i.dob) entry.DateOfBirth = i.dob;
+    if(i.stype) entry.CheckOneAreYouA = i.stype;
+    const a = {}; if(i.a1)a.Line1=i.a1; if(i.a2)a.Line2=i.a2; if(i.city)a.City=i.city; if(i.state)a.State=i.state; if(i.zip)a.PostalCode=i.zip;
+    if(Object.keys(a).length) entry.Address = a;
+    if(i.ph) entry.HomePhone = i.ph;
+    if(i.ph2) entry.AlternativePhone = i.ph2;
+    if(i.email) entry.EmailAddress = i.email;
+    if(i.county) entry.DoYouResideInWayneCounty = i.county;
+  }
   return COGNITO_URL + '?entry=' + encodeURIComponent(JSON.stringify(entry));
 }
 function renderSummary(){
@@ -3186,6 +3228,9 @@ function renderSummary(){
     return `<span class="step ${cls}"><span class="num">${n<2?'✓':n}</span>${sname}</span>${n<steps.length?'<span class="sep"></span>':''}`;
   }).join('');
   $('sumCount').textContent = `(${t.items.length} class${t.items.length>1?'es':''})`;
+  $('infoStatus').innerHTML = infoFilled(loadInfo())
+    ? `<div class="info-ok">✓ Your saved info will be pre-filled on each form<button onclick="openInfo()">Edit</button></div>`
+    : `<button class="info-cta" onclick="openInfo()">👤 <b>Fill in your info once</b> — it pre-fills on every class's form so you never retype it</button>`;
   $('sumItems').innerHTML = t.items.map(c=>`<div class="oi"><div class="ic">${c.online?'💻':'📍'}</div>
     <div class="t">${c.title}<div class="s">${c.loc} · ${c.num} · CRN ${c.id}</div>
     <div class="s">${schedLine(c)}${dateLine(c)?` · ${dateLine(c)}`:''}${c.instr?` · ${c.instr}`:''}</div>
@@ -3210,6 +3255,41 @@ function copyList(){
 }
 function openCognito(){ window.open(COGNITO_URL, '_blank'); }
 function backToList(){ show(state.lastView); }
+
+/* --- your-info: fill once, prefill every form --- */
+const INFO_KEY = 'wcccd-ce-myinfo';
+function loadInfo(){ try{ return JSON.parse(localStorage.getItem(INFO_KEY)||'null'); }catch(e){ return null; } }
+function piRadio(name){ const r = document.querySelector('input[name="'+name+'"]:checked'); return r ? r.value : ''; }
+function setPiRadio(name,val){ const r = document.querySelector('input[name="'+name+'"][value="'+val+'"]'); if(r) r.checked = true; else document.querySelectorAll('input[name="'+name+'"]').forEach(x=>x.checked=false); }
+function openInfo(){
+  const i = loadInfo()||{};
+  $('pi-first').value=i.first||''; $('pi-last').value=i.last||''; $('pi-sid').value=i.sid||'';
+  $('pi-dob').value=i.dob||''; $('pi-a1').value=i.a1||''; $('pi-a2').value=i.a2||'';
+  $('pi-city').value=i.city||''; $('pi-state').value=i.state||'MI'; $('pi-zip').value=i.zip||'';
+  $('pi-ph').value=i.ph||''; $('pi-ph2').value=i.ph2||''; $('pi-email').value=i.email||'';
+  setPiRadio('pi-stype', i.stype||''); setPiRadio('pi-county', i.county||'');
+  $('infoScrim').classList.add('open');
+}
+$('infoClose').onclick = ()=>$('infoScrim').classList.remove('open');
+$('infoScrim').onclick = e=>{ if(e.target===$('infoScrim')) $('infoScrim').classList.remove('open'); };
+$('infoSave').onclick = ()=>{
+  const i = { first:$('pi-first').value.trim(), last:$('pi-last').value.trim(), sid:$('pi-sid').value.trim(),
+    dob:$('pi-dob').value, a1:$('pi-a1').value.trim(), a2:$('pi-a2').value.trim(), city:$('pi-city').value.trim(),
+    state:$('pi-state').value, zip:$('pi-zip').value.trim(), ph:$('pi-ph').value.trim(), ph2:$('pi-ph2').value.trim(),
+    email:$('pi-email').value.trim(), stype:piRadio('pi-stype'), county:piRadio('pi-county') };
+  try{ localStorage.setItem(INFO_KEY, JSON.stringify(i)); }catch(e){}
+  $('infoScrim').classList.remove('open');
+  toast('Saved — registration forms will be pre-filled');
+  if($('view-checkout').classList.contains('on')) renderSummary();
+};
+$('infoClear').onclick = ()=>{
+  try{ localStorage.removeItem(INFO_KEY); }catch(e){}
+  ['pi-first','pi-last','pi-sid','pi-dob','pi-a1','pi-a2','pi-city','pi-zip','pi-ph','pi-ph2','pi-email'].forEach(id=>$(id).value='');
+  setPiRadio('pi-stype',''); setPiRadio('pi-county','');
+  toast('Your info was removed from this device');
+  if($('view-checkout').classList.contains('on')) renderSummary();
+};
+function infoFilled(i){ return i && (i.first||i.last||i.email||i.ph||i.a1); }
 
 /* --- after-registration housekeeping --- */
 let pendingReg = [], regAsking = null;
@@ -3240,6 +3320,10 @@ window.addEventListener('storage', e=>{
 /* JS is running — hide the static no-script fallbacks and enable the interactive experience */
 try{ $('jsNote').remove(); $('staticHead').style.display='none'; $('staticCatalog').style.display='none'; }catch(e){}
 loadList();
+(function(){
+  const st = ['MI','AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
+  $('pi-state').innerHTML = st.map(x=>`<option ${x==='MI'?'selected':''}>${x}</option>`).join('');
+})();
 try{
   const reg = new URLSearchParams(location.search).get('registered');
   if(reg){
