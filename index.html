@@ -45,7 +45,7 @@
   .cart-count{background:var(--gold);color:var(--accent-deep);border-radius:999px;min-width:20px;height:20px;display:grid;place-items:center;font-size:12px;font-weight:800;padding:0 5px}
   .cart-count.bump{animation:bump .35s}
   @keyframes bump{40%{transform:scale(1.4)}}
-  @media(max-width:640px){.brand-ce{display:none}.brand-logo{height:50px}.hlink{display:none}}
+  @media(max-width:640px){.brand-ce{display:none}.brand-logo{height:42px}.hlink{display:none}.cart-btn{display:none}.hwrap{padding:8px 14px}}
 
   main{max-width:1150px;margin:0 auto;padding:0 16px 90px}
   .view{display:none}
@@ -291,6 +291,60 @@
   .toast.show{transform:translate(-50%,0);opacity:1}
 
   .proto-note{max-width:1150px;margin:0 auto;padding:26px 16px 30px;font-size:11.5px;color:var(--ink-3);text-align:center}
+
+  /* ---------- Bottom nav (phones only) ---------- */
+  .bottom-nav{display:none}
+  @media(max-width:640px){
+    .bottom-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:45;
+      background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+      padding:6px 4px calc(8px + env(safe-area-inset-bottom));box-shadow:0 -4px 20px rgba(8,63,107,.08)}
+    .bottom-nav button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;font-weight:700;color:var(--ink-2);padding:4px 0;position:relative}
+    .bottom-nav .bn-ic{font-size:21px;line-height:1}
+    .bottom-nav .bn-badge{position:absolute;top:-2px;right:calc(50% - 24px);background:var(--gold);color:var(--accent-deep);border-radius:999px;min-width:17px;height:17px;display:grid;place-items:center;font-size:10.5px;font-weight:800;padding:0 4px}
+    main{padding-bottom:110px}
+    .toast{bottom:96px}
+    .d-foot{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
+
+    /* slimmer hero */
+    .hero{padding:24px 16px 30px;margin-top:12px}
+    .hero .kicker{font-size:10.5px;padding:5px 12px;margin-bottom:10px}
+    .hero p{font-size:13.5px;margin-top:8px}
+    .hero-search{margin-top:16px;padding:5px}
+    .hero-search button{padding:9px 18px}
+    .hero-stats{gap:18px;margin-top:16px}
+    .hero-stats .st{font-size:11px}
+    .hero-stats .st b{font-size:17px}
+
+    /* how-it-works: swipeable strip */
+    .howworks{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:10px;margin:14px 0 2px}
+    .howworks::-webkit-scrollbar{display:none}
+    .hw{min-width:76%;flex:none;padding:12px 14px}
+
+    /* tighter sections */
+    .sect-head{margin:22px 0 12px}
+    .sect-head h2{font-size:17px}
+    .tiles{gap:10px}
+    .tile{min-height:96px;padding:14px 12px 12px}
+    .tile .em{font-size:25px}
+
+    /* list toolbar: search row, then filters row */
+    .toolbar{top:59px;padding:8px 0;gap:7px}
+    .home-btn{order:0}
+    .search2{order:1;flex:1 1 auto;min-width:0}
+    .sel{order:2;flex:1 1 40%;max-width:none;min-width:0}
+    .row{padding:13px 13px}
+    .list-head{margin-top:14px}
+
+    /* stop iOS zoom-on-focus: inputs at 16px */
+    .search2 input,.hero-search input,.sel select,.promo input,
+    .field input,.field select{font-size:16px}
+
+    /* summary: full-width register buttons */
+    .oi{flex-wrap:wrap}
+    .oi .reg-link{width:100%;text-align:center;margin-top:6px;padding:11px}
+    .co-actions{flex-wrap:wrap}
+    .help-modal{padding:18px;border-radius:16px;max-height:80vh}
+  }
 </style>
 </head>
 <body>
@@ -302,9 +356,9 @@
       <div class="brand-ce">Continuing<br>Education</div>
     </div>
     <div class="spacer"></div>
-    <button class="hlink" onclick="goHome()" style="display:block">Home</button>
+    <button class="hlink" onclick="goHome()">Home</button>
     <a class="hlink" href="https://www.wcccd.edu" target="_blank" rel="noopener" style="text-decoration:none">wcccd.edu ↗</a>
-    <button class="hlink" id="helpBtn" style="display:block">Help</button>
+    <button class="hlink" id="helpBtn">Help</button>
     <button class="cart-btn" id="cartBtn">My List <span class="cart-count" id="cartCount">0</span></button>
   </div>
 </header>
@@ -2876,6 +2930,13 @@
 
 <div class="proto-note">Interactive prototype · real WCCCD Fall 2026 course &amp; schedule data · registration via the official WCCCD form</div>
 
+<nav class="bottom-nav" id="bottomNav">
+  <button onclick="goHome()"><span class="bn-ic">🏠</span>Home</button>
+  <button onclick="openList('All categories','All locations','')"><span class="bn-ic">🔍</span>Browse</button>
+  <button onclick="openDrawer()" class="bn-list"><span class="bn-ic">🗒️</span>My List<span class="bn-badge" id="cartCount2">0</span></button>
+  <button onclick="$('helpScrim').classList.add('open')"><span class="bn-ic">❓</span>Help</button>
+</nav>
+
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Shopping cart">
   <div class="d-head">
@@ -3172,6 +3233,9 @@ function updateHeader(bump){
   const el = $('cartCount');
   el.textContent = state.cart.length;
   if(bump){ el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+  const el2 = $('cartCount2');
+  if(el2){ el2.textContent = state.cart.length;
+    if(bump){ el2.classList.remove('bump'); void el2.offsetWidth; el2.classList.add('bump'); } }
 }
 let toastTimer;
 function toast(msg){
