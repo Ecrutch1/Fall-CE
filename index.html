@@ -3267,8 +3267,7 @@ function cognitoUrlFor(c){
   // CourseTitle is a Lookup field on the CECourses table (form 21). Lookup prefill
   // format is "FORMID-ENTRYID"; selecting the course auto-populates all other fields.
   const entry = { Semester2: SEMESTER };
-  if(c.eid) entry.CourseTitle = '21-' + c.eid;
-  else entry.CRN = c.id; // class not in the lookup table — pass the CRN at least
+  // Course lookup prefill ('21-' + c.eid) was hanging the form — student picks the course on the form.
   const i = loadInfo();
   if(infoFilled(i)){
     if(i.first||i.last) entry.Name = {First:i.first, Last:i.last};
