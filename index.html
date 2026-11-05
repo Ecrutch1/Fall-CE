@@ -3299,7 +3299,7 @@ function renderSummary(){
     <div class="t">${c.title}<div class="s">${c.loc} · ${c.num} · CRN ${c.id}</div>
     <div class="s">${schedLine(c)}${dateLine(c)?` · ${dateLine(c)}`:''}${c.instr?` · ${c.instr}`:''}</div>
     ${c.dl?'':'<div class="s" style="color:var(--amber);font-weight:600">⚠️ Not in the registration form’s course list yet — call 313-496-2758 or email cecourses@wcccd.edu to register for this one</div>'}</div>
-    <a class="reg-link" target="_blank" rel="noopener" href="${cognitoUrlFor(c)}" onclick="trackReg('${c.id}')">Register ↗</a></div>`).join('');
+    <a class="reg-link" target="_blank" rel="noopener noreferrer" href="${cognitoUrlFor(c)}" onclick="trackReg('${c.id}')">Register ↗</a></div>`).join('');
   const confl = cartConflicts(t.items);
   const box = $('sumConflicts');
   if(confl.length){
@@ -3317,7 +3317,7 @@ function copyList(){
     navigator.clipboard.writeText(txt).then(()=>toast('Class list copied')).catch(()=>prompt('Copy your class list:', txt));
   } else prompt('Copy your class list:', txt);
 }
-function openCognito(){ window.open(COGNITO_URL, '_blank'); }
+function openCognito(){ window.open(COGNITO_URL, '_blank', 'noopener,noreferrer'); }
 function backToList(){ show(state.lastView); }
 
 /* --- your-info: fill once, prefill every form --- */
